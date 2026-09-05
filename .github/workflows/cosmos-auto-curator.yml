@@ -1,0 +1,95 @@
+name: Cosmos Auto Curator
+
+on:
+  # Run every day at 9am UTC
+  schedule:
+    - cron: "0 9 * * *"
+
+  # Allow manual trigger with custom prompt
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "Curator prompt to run"
+        required: false
+        default: "Find new NVIDIA Cosmos resources from the last week and raise a PR so that folks can see that the agent is managing the repo"
+        type: string
+      task:
+        description: "Curator task"
+        required: false
+        default: "discover"
+        type: choice
+        options:
+          - discover
+          - validate-links
+          - discover-projects
+          - discover-models
+          - discover-papers
+
+jobs:
+  curate:
+    name: Run Cosmos Curator Agent
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create agent-bot label (if missing)
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          gh label create "agent-bot" \
+            --description "Pull request raised automatically by the Cosmos curator agent" \
+            --color "76b900" \
+            --repo "${{ github.repository }}" \
+          || echo "Label already exists, skipping."
+
+      - name: Install Docker Agent
+        run: |
+          # Download the latest Docker Agent Linux binary
+          curl -L -o /tmp/docker-agent https://github.com/docker/docker-agent/releases/latest/download/docker-agent-linux-amd64
+
+          # Install as a Docker CLI plugin
+          mkdir -p ~/.docker/cli-plugins
+          mv /tmp/docker-agent ~/.docker/cli-plugins/docker-agent
+
+          # Make it executable
+          chmod +x ~/.docker/cli-plugins/docker-agent
+          docker agent --help
+
+      - name: Set curator prompt
+        id: prompt
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            PROMPT="${{ github.event.inputs.prompt }}"
+          else
+            # Default scheduled prompt — always ends with a PR instruction so
+            # contributors can see that the agent is managing the repo.
+            PROMPT="Find new NVIDIA Cosmos resources (models, GitHub projects, papers, blogs, tools) published in the last 7 days. Then raise a Pull Request adding them to the awesome list so that folks can see that the agent is managing the repo. Label the PR with 'agent-bot'."
+          fi
+          echo "prompt=${PROMPT}" >> $GITHUB_OUTPUT
+
+      - name: Run Cosmos Curator Agent
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          docker agent run ./auto-curator-agent/cosmos-curator.yaml \
+            "${{ steps.prompt.outputs.prompt }}"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Cosmos Curator Run" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Prompt**: ${{ steps.prompt.outputs.prompt }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Model**: nvidia/cosmos-reason1-7b" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "PRs raised by the agent are labeled **agent-bot** and are visible in the" >> $GITHUB_STEP_SUMMARY
+          echo "[Pull Requests](https://github.com/${{ github.repository }}/pulls?q=label%3Aagent-bot) tab." >> $GITHUB_STEP_SUMMARY
