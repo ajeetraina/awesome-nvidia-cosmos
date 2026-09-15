@@ -41,8 +41,10 @@ jobs:
 
       - name: Create agent-bot label (if missing)
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
+          export GH_TOKEN="${GH_PAT:-$GITHUB_TOKEN}"
           gh label create "agent-bot" \
             --description "Pull request raised automatically by the Cosmos curator agent" \
             --color "76b900" \
@@ -74,10 +76,23 @@ jobs:
           fi
           echo "prompt=${PROMPT}" >> $GITHUB_OUTPUT
 
-      - name: Run Cosmos Curator Agent
+      - name: Check required secrets
+        id: preflight
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "${NVIDIA_API_KEY}" ]; then
+            echo "can_run=false" >> $GITHUB_OUTPUT
+            echo "NVIDIA_API_KEY secret is missing; skipping curator agent run."
+          else
+            echo "can_run=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Cosmos Curator Agent
+        if: ${{ steps.preflight.outputs.can_run == 'true' }}
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PAT != '' && secrets.GH_PAT || github.token }}
         run: |
           docker agent run ./auto-curator-agent/cosmos-curator.yaml \
             "${{ steps.prompt.outputs.prompt }}"
@@ -89,6 +104,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Prompt**: ${{ steps.prompt.outputs.prompt }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ steps.preflight.outputs.can_run == 'true' && 'Executed' || 'Skipped (missing NVIDIA_API_KEY secret)' }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Model**: nvidia/cosmos-reason1-7b" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "PRs raised by the agent are labeled **agent-bot** and are visible in the" >> $GITHUB_STEP_SUMMARY
