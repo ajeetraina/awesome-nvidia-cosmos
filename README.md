@@ -15,12 +15,6 @@ Open weights · Open data · Built for robots, autonomous vehicles, and smart in
 
 </div>
 
----
-
-> 🤖 **This list is maintained by an autonomous agent.** A multi-agent [Cosmos Auto-Curator](auto-curator-agent/cosmos-curator.yaml) — powered by NVIDIA Cosmos Reason — discovers new resources, validates links, and raises pull requests on a schedule. PRs it opens are labeled [`agent-bot`](../../pulls?q=label%3Aagent-bot). Humans are welcome too — see [Contributing](#-contributing).
-
----
-
 ## Contents
 
 - [What is NVIDIA Cosmos?](#-what-is-nvidia-cosmos)
