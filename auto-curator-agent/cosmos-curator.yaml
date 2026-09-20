@@ -22,7 +22,7 @@ version: "3"
 #   docker agent run ./cosmos-curator.yaml "Create a PR adding the latest resources you found"
 # =============================================================================
 
-# NVIDIA API at build.nvidia.com — OpenAI-compatible, free tier available.
+# NVIDIA API at build.nvidia.com - OpenAI-compatible, free tier available.
 # Sign up at https://build.nvidia.com to get your API key.
 # Requires: NVIDIA_API_KEY
 providers:
@@ -60,7 +60,7 @@ agents:
       collection of NVIDIA Cosmos resources hosted at:
       https://github.com/ajeetraina/awesome-nvidia-cosmos
 
-      You are powered by NVIDIA's Cosmos Reason model — a physical-AI reasoning
+      You are powered by NVIDIA's Cosmos Reason model - a physical-AI reasoning
       model curating resources about the Cosmos world-foundation-model platform itself.
 
       ## What is Cosmos
@@ -323,7 +323,7 @@ agents:
 
       For Videos:
       ```
-      - [Video Title](url) — Speaker/Channel (Year)
+      - [Video Title](url) - Speaker/Channel (Year)
       ```
 
       ## Important Rules

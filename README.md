@@ -8,7 +8,7 @@
 [![Last Updated](https://img.shields.io/badge/Updated-September%202026-blue.svg)](#)
 [![Curated by an Agent](https://img.shields.io/badge/Curated%20by-Cosmos%20Agent%20🤖-76b900.svg)](auto-curator-agent/cosmos-curator.yaml)
 
-A curated list of **NVIDIA Cosmos** — world foundation models (WFMs), datasets, tools, and projects for building **Physical AI**.
+A curated list of **NVIDIA Cosmos** - world foundation models (WFMs), datasets, tools, and projects for building **Physical AI**.
 Open weights · Open data · Built for robots, autonomous vehicles, and smart infrastructure.
 
 [Models](#-models) • [GitHub Projects](#-github-projects) • [Tools](#-tools--deployment) • [Tutorials](#-tutorials--starter-kits) • [HuggingFace × Cosmos](#-huggingface--cosmos) • [Use Cases](#-real-world-use-cases--companies) • [Videos](#-videos--talks) • [Papers](#-papers) • [Events](#-events) • [Community](#-community)
@@ -20,7 +20,7 @@ Open weights · Open data · Built for robots, autonomous vehicles, and smart in
 - [What is NVIDIA Cosmos?](#-what-is-nvidia-cosmos)
 - [Model Generations at a Glance](#-model-generations-at-a-glance)
 - [Models](#-models)
-  - [Cosmos 3 (Latest — Omni-Model)](#cosmos-3-latest--omni-model)
+  - [Cosmos 3 (Latest - Omni-Model)](#cosmos-3-latest---omni-model)
   - [Cosmos Predict (World Generation)](#cosmos-predict-world-generation)
   - [Cosmos Transfer (Controllable / Sim-to-Real)](#cosmos-transfer-controllable--sim-to-real)
   - [Cosmos Reason (Physical Reasoning VLM)](#cosmos-reason-physical-reasoning-vlm)
@@ -29,10 +29,10 @@ Open weights · Open data · Built for robots, autonomous vehicles, and smart in
 - [GitHub Projects](#-github-projects)
   - [Official NVIDIA Repositories](#official-nvidia-repositories)
   - [NVIDIA Labs & Blueprints](#nvidia-labs--blueprints)
-  - [Community — Robotics & Embodied AI](#community--robotics--embodied-ai)
-  - [Community — ComfyUI & Diffusion Tooling](#community--comfyui--diffusion-tooling)
-  - [Community — Edge, Deployment & Apps](#community--edge-deployment--apps)
-  - [Community — Research, Distillation & Data](#community--research-distillation--data)
+  - [Community - Robotics & Embodied AI](#community---robotics--embodied-ai)
+  - [Community - ComfyUI & Diffusion Tooling](#community---comfyui--diffusion-tooling)
+  - [Community - Edge, Deployment & Apps](#community---edge-deployment--apps)
+  - [Community - Research, Distillation & Data](#community---research-distillation--data)
 - [Tools & Deployment](#-tools--deployment)
 - [Tutorials & Starter Kits](#-tutorials--starter-kits)
 - [HuggingFace × Cosmos](#-huggingface--cosmos)
@@ -47,17 +47,17 @@ Open weights · Open data · Built for robots, autonomous vehicles, and smart in
 
 ## 🔭 What is NVIDIA Cosmos?
 
-**NVIDIA Cosmos™** is an open platform of **world foundation models (WFMs)**, datasets, and tools for building **Physical AI** — AI that perceives, reasons about, and acts in the physical world (robotics, autonomous vehicles, and smart infrastructure). Cosmos WFMs generate and predict physically-plausible video "worlds" from text, image, video, and control inputs — primarily to produce controllable synthetic training data and to serve as reasoning and policy backbones for embodied agents. First unveiled at CES on January 6, 2025.
+**NVIDIA Cosmos™** is an open platform of **world foundation models (WFMs)**, datasets, and tools for building **Physical AI** - AI that perceives, reasons about, and acts in the physical world (robotics, autonomous vehicles, and smart infrastructure). Cosmos WFMs generate and predict physically-plausible video "worlds" from text, image, video, and control inputs - primarily to produce controllable synthetic training data and to serve as reasoning and policy backbones for embodied agents. First unveiled at CES on January 6, 2025.
 
 Key properties across the family:
 
-- **Open weights + open source** — checkpoints published on [Hugging Face](https://huggingface.co/nvidia); source code on GitHub. Weights use the permissive **NVIDIA Open Model License** (commercially usable, derivatives allowed).
-- **Three functional pillars** — **Predict** (world / video generation and future-state prediction), **Transfer** (controllable conditional generation and sim-to-real), and **Reason** (physical-common-sense reasoning VLM). **Cosmos 3** unifies all three into a single omni-model.
-- **Physical AI first** — built to generate synthetic training data, bridge the sim-to-real gap, and provide embodied reasoning for robots and autonomous vehicles.
-- **Deployable anywhere** — download from Hugging Face, run as [NVIDIA NIM microservices](https://build.nvidia.com/models?q=cosmos), fine-tune from GitHub, or scale on NVIDIA DGX Cloud.
-- **Full ecosystem** — visual tokenizers, guardrails, RL post-training (`cosmos-rl`), distributed data pipelines (`cosmos-xenna`), curation, evaluation, and recipes (`cosmos-cookbook`).
+- **Open weights + open source** - checkpoints published on [Hugging Face](https://huggingface.co/nvidia); source code on GitHub. Weights use the permissive **NVIDIA Open Model License** (commercially usable, derivatives allowed).
+- **Three functional pillars** - **Predict** (world / video generation and future-state prediction), **Transfer** (controllable conditional generation and sim-to-real), and **Reason** (physical-common-sense reasoning VLM). **Cosmos 3** unifies all three into a single omni-model.
+- **Physical AI first** - built to generate synthetic training data, bridge the sim-to-real gap, and provide embodied reasoning for robots and autonomous vehicles.
+- **Deployable anywhere** - download from Hugging Face, run as [NVIDIA NIM microservices](https://build.nvidia.com/models?q=cosmos), fine-tune from GitHub, or scale on NVIDIA DGX Cloud.
+- **Full ecosystem** - visual tokenizers, guardrails, RL post-training (`cosmos-rl`), distributed data pipelines (`cosmos-xenna`), curation, evaluation, and recipes (`cosmos-cookbook`).
 
-> "The ChatGPT moment for robotics is coming." — Jensen Huang, NVIDIA CEO (CES 2025)
+> "The ChatGPT moment for robotics is coming." - Jensen Huang, NVIDIA CEO (CES 2025)
 
 ---
 
@@ -65,23 +65,23 @@ Key properties across the family:
 
 | Model | Gen | Released | Sizes | Role | License |
 |---|---|---|---|---|---|
-| [Cosmos 3 (Super / Nano / Edge)](#cosmos-3-latest--omni-model) | 3.0 | Jun 2026 | 64B / 16B / 4B | Omni-model: reasoning + world + action (Mixture-of-Transformers) | Open Model |
+| [Cosmos 3 (Super / Nano / Edge)](#cosmos-3-latest---omni-model) | 3.0 | Jun 2026 | 64B / 16B / 4B | Omni-model: reasoning + world + action (Mixture-of-Transformers) | Open Model |
 | [Cosmos-Predict2.5](#cosmos-predict-world-generation) | 2.x | Oct 2025 (14B Dec 2025) | 2B / 14B | Unified Text/Image/Video → World; uses Reason1 as text encoder | Open Model |
 | [Cosmos-Transfer2.5](#cosmos-transfer-controllable--sim-to-real) | 2.x | Oct 2025 | 2B | Multi-control world generation; ~3.5× smaller than Transfer1 | Open Model |
-| [Cosmos-Reason2](#cosmos-reason-physical-reasoning-vlm) | 2.x | 2025–26 | — | Next-gen physical-reasoning / embodied VLM | Open Model |
+| [Cosmos-Reason2](#cosmos-reason-physical-reasoning-vlm) | 2.x | 2025–26 | - | Next-gen physical-reasoning / embodied VLM | Open Model |
 | [Cosmos-Predict2](#cosmos-predict-world-generation) | 2.x | Jun 2025 *(archived)* | 0.6B / 2B / 14B | Text2Image + Video2World WFMs | Open Model |
 | [Cosmos-Reason1](#cosmos-reason-physical-reasoning-vlm) | 1.x | May 2025 | 7B | Physical-common-sense reasoning VLM (long CoT) | Open Model |
 | [Cosmos-Transfer1](#cosmos-transfer-controllable--sim-to-real) | 1.x | 2025 | 7B | World-to-world transfer / sim-to-real (depth, seg, edge, LiDAR, HDMap) | Open Model |
 | [Cosmos-Predict1](#cosmos-predict-world-generation) | 1.x | Jan 2025 | 4B–14B | First-gen diffusion + autoregressive WFMs | Open Model |
-| [Cosmos-Tokenizer](#cosmos-tokenizer) | 0.1 / 1.0 | Jan 2025 | — | Continuous / discrete image & video tokenizers | Open Model |
+| [Cosmos-Tokenizer](#cosmos-tokenizer) | 0.1 / 1.0 | Jan 2025 | - | Continuous / discrete image & video tokenizers | Open Model |
 
 ---
 
 ## 🤖 Models
 
-### Cosmos 3 (Latest — Omni-Model)
+### Cosmos 3 (Latest - Omni-Model)
 
-Announced June 1, 2026 (GTC Taipei). An **omnimodal world model** built on a unified **Mixture-of-Transformers (MoT)** architecture that jointly models text, image, video, audio, and action — combining an autoregressive transformer for reasoning with a diffusion transformer for generation (unified via 3D RoPE). It acts as a **Reasoner** (grounding, physical reasoning, planning, action forecasting) and a **Generator** (future/world prediction, synthetic data, policy learning).
+Announced June 1, 2026 (GTC Taipei). An **omnimodal world model** built on a unified **Mixture-of-Transformers (MoT)** architecture that jointly models text, image, video, audio, and action - combining an autoregressive transformer for reasoning with a diffusion transformer for generation (unified via 3D RoPE). It acts as a **Reasoner** (grounding, physical reasoning, planning, action forecasting) and a **Generator** (future/world prediction, synthetic data, policy learning).
 
 | Model | Params | Description | Links |
 |---|---|---|---|
@@ -108,7 +108,7 @@ General-purpose WFMs that generate and predict future world states as video, fro
 
 ### Cosmos Transfer (Controllable / Sim-to-Real)
 
-World-to-world transfer models that generate photorealistic worlds conditioned on structured control inputs — bridging the perceptual gap between simulation and reality for data augmentation.
+World-to-world transfer models that generate photorealistic worlds conditioned on structured control inputs - bridging the perceptual gap between simulation and reality for data augmentation.
 
 | Model | Released | Size | Description | Links |
 |---|---|---|---|---|
@@ -123,7 +123,7 @@ Vision-language models that understand physical common sense and generate embodi
 
 | Model | Released | Size | Description | Links |
 |---|---|---|---|---|
-| **Cosmos-Reason2** | 2025–26 | — | Next-gen physical-common-sense embodied reasoning models | [GitHub](https://github.com/nvidia-cosmos/cosmos-reason2) |
+| **Cosmos-Reason2** | 2025–26 | - | Next-gen physical-common-sense embodied reasoning models | [GitHub](https://github.com/nvidia-cosmos/cosmos-reason2) |
 | **Cosmos-Reason1** | May 2025 | 7B | Reasoning VLM for spatial-temporal / embodied reasoning; trained via vision pre-training → SFT → Physical AI RL | [HF](https://huggingface.co/nvidia/Cosmos-Reason1-7B) · [GitHub](https://github.com/nvidia-cosmos/cosmos-reason1) · [Collection](https://huggingface.co/collections/nvidia/cosmos-reason1-67c9e926206426008f1da1b7) |
 
 ---
@@ -154,19 +154,19 @@ Pre- and post-generation safety models (including a RetinaFace-based face-blur f
 
 ## 🛠 GitHub Projects
 
-The core ask of this list — real, meaningful projects built with or on top of NVIDIA Cosmos. Star counts are approximate. Both `NVIDIA/*` (Cosmos 3 era) and `nvidia-cosmos/*` (Predict/Transfer/Reason 1–2.5) orgs are official.
+The core ask of this list - real, meaningful projects built with or on top of NVIDIA Cosmos. Star counts are approximate. Both `NVIDIA/*` (Cosmos 3 era) and `nvidia-cosmos/*` (Predict/Transfer/Reason 1–2.5) orgs are official.
 
 ### Official NVIDIA Repositories
 
 | Repo | Stars | Description |
 |---|---|---|
-| [NVIDIA/cosmos](https://github.com/NVIDIA/cosmos) | ~11.7k | Main Cosmos 3 platform: omnimodal world models, datasets, inference/training/eval + cookbooks — the current flagship repo |
+| [NVIDIA/cosmos](https://github.com/NVIDIA/cosmos) | ~11.7k | Main Cosmos 3 platform: omnimodal world models, datasets, inference/training/eval + cookbooks - the current flagship repo |
 | [NVIDIA/Cosmos-Tokenizer](https://github.com/NVIDIA/Cosmos-Tokenizer) | ~1.7k | Suite of image/video neural tokenizers *(archived; folded into NVIDIA/cosmos)* |
-| [nvidia-cosmos/cosmos-predict2.5](https://github.com/nvidia-cosmos/cosmos-predict2.5) | ~1.4k | Latest Predict WFM — flow-based video future-state prediction; includes AV-post-trained checkpoints |
+| [nvidia-cosmos/cosmos-predict2.5](https://github.com/nvidia-cosmos/cosmos-predict2.5) | ~1.4k | Latest Predict WFM - flow-based video future-state prediction; includes AV-post-trained checkpoints |
 | [nvidia-cosmos/cosmos-reason1](https://github.com/nvidia-cosmos/cosmos-reason1) | ~960 | 7B physical-reasoning VLM (Qwen2.5-VL based) for embodied decisions via chain-of-thought |
 | [nvidia-cosmos/cosmos-transfer1](https://github.com/nvidia-cosmos/cosmos-transfer1) | ~820 | World-to-world transfer (sim2real) conditioned on segmentation/depth/edge; AV LiDAR/HDMap variant |
 | [nvidia-cosmos/cosmos-predict2](https://github.com/nvidia-cosmos/cosmos-predict2) | ~790 | Predict2 general-purpose WFMs *(archived; ComfyUI-supported)* |
-| [nvidia-cosmos/cosmos-transfer2.5](https://github.com/nvidia-cosmos/cosmos-transfer2.5) | ~730 | Transfer2.5 built on Predict2.5 — multi-input spatial-control world simulation |
+| [nvidia-cosmos/cosmos-transfer2.5](https://github.com/nvidia-cosmos/cosmos-transfer2.5) | ~730 | Transfer2.5 built on Predict2.5 - multi-input spatial-control world simulation |
 | [NVIDIA/cosmos-framework](https://github.com/NVIDIA/cosmos-framework) | ~505 | Inference and training framework to run the Cosmos models |
 | [nvidia-cosmos/cosmos-cookbook](https://github.com/nvidia-cosmos/cosmos-cookbook) | ~470 | Post-training scripts, recipes, and samples for the Cosmos ecosystem |
 | [nvidia-cosmos/cosmos-predict1](https://github.com/nvidia-cosmos/cosmos-predict1) | ~470 | First-gen general-purpose WFMs, fine-tunable into custom world models |
@@ -181,11 +181,11 @@ The core ask of this list — real, meaningful projects built with or on top of 
 | Repo | Stars | Description |
 |---|---|---|
 | [NVIDIA-AI-Blueprints/video-search-and-summarization](https://github.com/NVIDIA-AI-Blueprints/video-search-and-summarization) | ~1.8k | GPU video-analytics agent blueprint using Cosmos VLMs + Nemotron + RAG/NIMs |
-| [nv-tlabs/omni-dreams](https://github.com/nv-tlabs/omni-dreams) | ~330 | Cosmos-Dreams — real-time photorealistic video world model for AV simulation (Toronto AI Lab) |
+| [nv-tlabs/omni-dreams](https://github.com/nv-tlabs/omni-dreams) | ~330 | Cosmos-Dreams - real-time photorealistic video world model for AV simulation (Toronto AI Lab) |
 | [NVIDIA-Omniverse-blueprints/cosmos-dataset-search](https://github.com/NVIDIA-Omniverse-blueprints/cosmos-dataset-search) | ~95 | Semantic search across video datasets for Cosmos data curation |
 | [nv-tlabs/cosmos-av-sample-toolkits](https://github.com/nv-tlabs/cosmos-av-sample-toolkits) | ~48 | Toolkits for Cosmos-Transfer1-7B-Sample-AV (autonomous-vehicle data) |
 
-### Community — Robotics & Embodied AI
+### Community - Robotics & Embodied AI
 
 | Repo | Stars | Description |
 |---|---|---|
@@ -195,9 +195,9 @@ The core ask of this list — real, meaningful projects built with or on top of 
 | [cagataycali/strands-cosmos](https://github.com/cagataycali/strands-cosmos) | ~5 | Strands agent integration giving agents physics-aware perception via Cosmos |
 | [cagataycali/thor-cosmos](https://github.com/cagataycali/thor-cosmos) | ~1 | Strands agent orchestrating the Cosmos ecosystem on Jetson AGX Thor for real-time robot perception |
 | [doosan-robotics/palletizing-ai](https://github.com/doosan-robotics/palletizing-ai) | ~1 | AI-powered optimal palletizing using Cosmos-Reason2 physical reasoning |
-| [naveentnj/cosmos-embodied-ai](https://github.com/naveentnj/cosmos-embodied-ai) | — | Physical AI sim/eval framework for Cosmos edge world-action models with Isaac Sim/Lab |
+| [naveentnj/cosmos-embodied-ai](https://github.com/naveentnj/cosmos-embodied-ai) | - | Physical AI sim/eval framework for Cosmos edge world-action models with Isaac Sim/Lab |
 
-### Community — ComfyUI & Diffusion Tooling
+### Community - ComfyUI & Diffusion Tooling
 
 | Repo | Stars | Description |
 |---|---|---|
@@ -208,23 +208,23 @@ The core ask of this list — real, meaningful projects built with or on top of 
 | [NicholaiVogel/comfyui-materia](https://github.com/NicholaiVogel/comfyui-materia) | ~6 | Diffusion inverse rendering (RGB→PBR maps) via NVIDIA Cosmos 7B |
 | [rikunarita/ComfyUI-ModelMergeCosmosPredict2-2B-Slerp](https://github.com/rikunarita/ComfyUI-ModelMergeCosmosPredict2-2B-Slerp) | ~1 | SLERP model-merge node for Cosmos-Predict2-2B |
 
-### Community — Edge, Deployment & Apps
+### Community - Edge, Deployment & Apps
 
 | Repo | Stars | Description |
 |---|---|---|
 | [kabilankb/cosmos3-nano-gb10](https://github.com/kabilankb/cosmos3-nano-gb10) | ~5 | Runs Cosmos3-Nano (16B) on Dell Pro Max GB10 (ARM Blackwell) for text/image-to-video |
-| [tuttlebr/cosmos-gradio-app](https://github.com/tuttlebr/cosmos-gradio-app) | — | Gradio web app for physics-aware video generation with Cosmos WFMs |
+| [tuttlebr/cosmos-gradio-app](https://github.com/tuttlebr/cosmos-gradio-app) | - | Gradio web app for physics-aware video generation with Cosmos WFMs |
 | [chengchencon/Cosmos-UserGuide](https://github.com/chengchencon/Cosmos-UserGuide) | ~6 | Install/use guide for the NVIDIA Cosmos platform |
 | [eivholt/edgeai-synthetic-cosmos-predict](https://github.com/eivholt/edgeai-synthetic-cosmos-predict) | ~6 | Walkthrough: edge-AI object detection trained on Cosmos-Predict2 synthetic images |
 
-### Community — Research, Distillation & Data
+### Community - Research, Distillation & Data
 
 | Repo | Stars | Description |
 |---|---|---|
 | [csy2077/data-forcing-distillation](https://github.com/csy2077/data-forcing-distillation) | ~56 | Few-step video-gen distillation; image-to-video built on Cosmos |
 | [andreaskoepf/cosmos3-dk1](https://github.com/andreaskoepf/cosmos3-dk1) | ~5 | Training config for the Cosmos 3 model |
-| [lowweihong/cosmos-data-analyzer](https://github.com/lowweihong/cosmos-data-analyzer) | — | Agentic pipeline diagnosing model failures + curating training data for Cosmos WFMs |
-| [StaryMoon/Cosmos-WFM-Unofficial](https://github.com/StaryMoon/Cosmos-WFM-Unofficial) | — | Unofficial PyTorch reproduction of the Cosmos WFM platform |
+| [lowweihong/cosmos-data-analyzer](https://github.com/lowweihong/cosmos-data-analyzer) | - | Agentic pipeline diagnosing model failures + curating training data for Cosmos WFMs |
+| [StaryMoon/Cosmos-WFM-Unofficial](https://github.com/StaryMoon/Cosmos-WFM-Unofficial) | - | Unofficial PyTorch reproduction of the Cosmos WFM platform |
 
 > **Ecosystem repos that frequently integrate Cosmos:** [NVIDIA/Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T) (robot foundation models), [isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) (robot learning in simulation), [NVIDIA-NeMo/Curator](https://github.com/NVIDIA-NeMo/Curator) (data curation).
 
@@ -249,7 +249,7 @@ The core ask of this list — real, meaningful projects built with or on top of 
 
 | Title | Source | Description |
 |---|---|---|
-| [NVIDIA Cosmos for Developers](https://developer.nvidia.com/cosmos) | developer.nvidia.com | Main developer landing page — models, NIMs, and docs |
+| [NVIDIA Cosmos for Developers](https://developer.nvidia.com/cosmos) | developer.nvidia.com | Main developer landing page - models, NIMs, and docs |
 | [Cosmos Documentation](https://docs.nvidia.com/cosmos/latest/) | docs.nvidia.com | Official docs covering Predict, Transfer, and Reason |
 | [Develop Custom Physical AI Models with Cosmos Predict-2](https://developer.nvidia.com/blog/develop-custom-physical-ai-foundation-models-with-nvidia-cosmos-predict-2/) | NVIDIA Blog | Building / post-training custom world models with Predict-2 |
 | [Curating Synthetic Datasets with Cosmos Reason](https://developer.nvidia.com/blog/curating-synthetic-datasets-to-train-physical-ai-models-with-nvidia-cosmos-reason/) | NVIDIA Blog | Using Cosmos Reason as a VLM to curate/filter synthetic data |
@@ -263,7 +263,7 @@ The core ask of this list — real, meaningful projects built with or on top of 
 
 ## 🤗 HuggingFace × Cosmos
 
-- **Organization:** [huggingface.co/nvidia](https://huggingface.co/nvidia) — all official Cosmos weights
+- **Organization:** [huggingface.co/nvidia](https://huggingface.co/nvidia) - all official Cosmos weights
 - **Cosmos 3 collection:** [huggingface.co/collections/nvidia/cosmos3](https://huggingface.co/collections/nvidia/cosmos3)
 - **Predict2.5:** [2B](https://huggingface.co/nvidia/Cosmos-Predict2.5-2B) · [14B](https://huggingface.co/nvidia/Cosmos-Predict2.5-14B)
 - **Predict2 collection:** [link](https://huggingface.co/collections/nvidia/cosmos-predict2-68028efc052239369a0f2959)
@@ -298,12 +298,12 @@ See also: [NVIDIA Expands Automotive Ecosystem With Physical AI](https://blogs.n
 
 ## 🎥 Videos & Talks
 
-- [CES 2025 Keynote — Jensen Huang unveils NVIDIA Cosmos](https://blogs.nvidia.com/blog/ces-2025-jensen-huang/) — NVIDIA / Jensen Huang (2025)
-- [An Introduction to NVIDIA Cosmos World Foundation Models | GTC 2025](https://www.youtube.com/watch?v=kChwwFb5gMU) — Ming-Yu Liu, VP Generative AI Research (2025)
-- [An Introduction to NVIDIA Cosmos World Foundation Models (S72431)](https://www.nvidia.com/en-us/on-demand/session/gtc25-s72431/) — NVIDIA On-Demand, GTC (2025)
-- [Developing Next-Gen AVs with Physical AI-Powered WFMs (DD40001)](https://www.nvidia.com/en-us/on-demand/session/gtc25-dd40001/) — NVIDIA On-Demand, GTC (2025)
-- [Cosmos WFMs for Autonomous Driving Development (S73198)](https://www.nvidia.com/en-us/on-demand/session/gtc25-s73198/) — NVIDIA On-Demand, GTC (2025)
-- [Generate Synthetic Data for Physical AI with Cosmos WFMs (DLIT81644)](https://www.nvidia.com/en-us/on-demand/session/gtc26-dlit81644/) — NVIDIA On-Demand, GTC 2026
+- [CES 2025 Keynote - Jensen Huang unveils NVIDIA Cosmos](https://blogs.nvidia.com/blog/ces-2025-jensen-huang/) - NVIDIA / Jensen Huang (2025)
+- [An Introduction to NVIDIA Cosmos World Foundation Models | GTC 2025](https://www.youtube.com/watch?v=kChwwFb5gMU) - Ming-Yu Liu, VP Generative AI Research (2025)
+- [An Introduction to NVIDIA Cosmos World Foundation Models (S72431)](https://www.nvidia.com/en-us/on-demand/session/gtc25-s72431/) - NVIDIA On-Demand, GTC (2025)
+- [Developing Next-Gen AVs with Physical AI-Powered WFMs (DD40001)](https://www.nvidia.com/en-us/on-demand/session/gtc25-dd40001/) - NVIDIA On-Demand, GTC (2025)
+- [Cosmos WFMs for Autonomous Driving Development (S73198)](https://www.nvidia.com/en-us/on-demand/session/gtc25-s73198/) - NVIDIA On-Demand, GTC (2025)
+- [Generate Synthetic Data for Physical AI with Cosmos WFMs (DLIT81644)](https://www.nvidia.com/en-us/on-demand/session/gtc26-dlit81644/) - NVIDIA On-Demand, GTC 2026
 
 ---
 
@@ -323,16 +323,16 @@ Research lab pages: [Cosmos-Predict2](https://research.nvidia.com/labs/cosmos-la
 
 ## 📅 Events
 
-- **NVIDIA GTC** — annual talks and DLI sessions on Cosmos and Physical AI ([on-demand catalog](https://www.nvidia.com/en-us/on-demand/))
-- **NVIDIA Cosmos Cookoff** — community hackathon for building on Cosmos ([luma.com/nvidia-cosmos-cookoff](https://luma.com/nvidia-cosmos-cookoff))
-- **CES** — where Cosmos was first announced (Jan 2025)
+- **NVIDIA GTC** - annual talks and DLI sessions on Cosmos and Physical AI ([on-demand catalog](https://www.nvidia.com/en-us/on-demand/))
+- **NVIDIA Cosmos Cookoff** - community hackathon for building on Cosmos ([luma.com/nvidia-cosmos-cookoff](https://luma.com/nvidia-cosmos-cookoff))
+- **CES** - where Cosmos was first announced (Jan 2025)
 
 ---
 
 ## 💬 Community
 
-- **GitHub — Cosmos 3 / flagship:** [github.com/NVIDIA/cosmos](https://github.com/NVIDIA/cosmos)
-- **GitHub — WFM org:** [github.com/nvidia-cosmos](https://github.com/nvidia-cosmos)
+- **GitHub - Cosmos 3 / flagship:** [github.com/NVIDIA/cosmos](https://github.com/NVIDIA/cosmos)
+- **GitHub - WFM org:** [github.com/nvidia-cosmos](https://github.com/nvidia-cosmos)
 - **NVIDIA Developer Forums:** [forums.developer.nvidia.com](https://forums.developer.nvidia.com/)
 - **Hugging Face:** [huggingface.co/nvidia](https://huggingface.co/nvidia)
 - **Product page:** [nvidia.com/en-us/ai/cosmos](https://www.nvidia.com/en-us/ai/cosmos/)
@@ -344,13 +344,13 @@ Research lab pages: [Cosmos-Predict2](https://research.nvidia.com/labs/cosmos-la
 
 Contributions are welcome! This list is jointly maintained by the community and an [autonomous curator agent](auto-curator-agent/cosmos-curator.yaml). See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-Found a broken link, a missing project, or a new Cosmos release? [Open an issue](../../issues) or submit a PR. The agent also raises PRs automatically — look for the [`agent-bot`](../../pulls?q=label%3Aagent-bot) label.
+Found a broken link, a missing project, or a new Cosmos release? [Open an issue](../../issues) or submit a PR. The agent also raises PRs automatically - look for the [`agent-bot`](../../pulls?q=label%3Aagent-bot) label.
 
 ---
 
 <div align="center">
 
-**License:** [CC0 1.0 Universal](LICENSE) — dedicated to the public domain.
+**License:** [CC0 1.0 Universal](LICENSE) - dedicated to the public domain.
 
 Made with 🌌 for the Physical AI community.
 

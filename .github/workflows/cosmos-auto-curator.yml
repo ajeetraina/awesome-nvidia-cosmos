@@ -68,7 +68,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             PROMPT="${{ github.event.inputs.prompt }}"
           else
-            # Default scheduled prompt — always ends with a PR instruction so
+            # Default scheduled prompt - always ends with a PR instruction so
             # contributors can see that the agent is managing the repo.
             PROMPT="Find new NVIDIA Cosmos resources (models, GitHub projects, papers, blogs, tools) published in the last 7 days. Then raise a Pull Request adding them to the awesome list so that folks can see that the agent is managing the repo. Label the PR with 'agent-bot'."
           fi
