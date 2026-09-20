@@ -1,7 +1,7 @@
 # Contributing to Awesome NVIDIA Cosmos
 
 Thanks for helping keep this list useful and up to date! Contributions of all
-sizes are welcome — from fixing a broken link to adding a brand-new world
+sizes are welcome - from fixing a broken link to adding a brand-new world
 foundation model release or a project built on Cosmos.
 
 > 🤖 **Note:** This list is also maintained by an autonomous [Cosmos Auto-Curator
@@ -16,7 +16,7 @@ foundation model release or a project built on Cosmos.
    (Models, GitHub Projects, Tools & Deployment, Tutorials & Starter Kits,
    HuggingFace × Cosmos, Real-World Use Cases & Companies, Videos & Talks,
    Papers, Events, or Community).
-3. **Keep the existing formatting** — most sections use Markdown tables with
+3. **Keep the existing formatting** - most sections use Markdown tables with
    consistent columns (e.g. `Model | Params | Description | Links` or
    `Repo | Stars | Description`). Match the style of the surrounding rows.
 4. **Verify your link works** and points to the canonical/official source
@@ -49,7 +49,7 @@ foundation model release or a project built on Cosmos.
 ## Style Guide
 
 - Use `**Bold**` for model/resource names.
-- Keep descriptions concise — one line per entry.
+- Keep descriptions concise - one line per entry.
 - For GitHub projects, note whether the repo is **official NVIDIA** or
   **community**, and include an approximate star count where helpful.
 - Sort new rows within a table in a sensible order (e.g. newest first, or by
