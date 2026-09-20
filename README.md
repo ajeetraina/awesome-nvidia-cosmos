@@ -258,6 +258,7 @@ The core ask of this list - real, meaningful projects built with or on top of NV
 | [Develop Reasoning, World & Action Models with Cosmos 3](https://developer.nvidia.com/blog/develop-physical-ai-reasoning-world-and-action-models-with-nvidia-cosmos-3/) | NVIDIA Blog | Intro and workflows for the Cosmos 3 omnimodal models |
 | [Welcome NVIDIA Cosmos 3](https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai) | Hugging Face | Community walkthrough of Cosmos 3 as the first open omni-model for Physical AI |
 | [Isaac Sim, Omniverse & Cosmos Ecosystem Explained](https://www.ridgerun.ai/post/nvidia-isaac-sim-omniverse-and-cosmos-the-robotics-ai-simulation-ecosystem-explained) | RidgeRun | How Isaac Sim, Isaac Lab, Omniverse, and Cosmos fit together |
+| [NVIDIA Launches Cosmos 3: Open Frontier Foundation Model for Physical AI](https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai) | NVIDIA Newsroom | Official launch announcement for Cosmos 3, the open omnimodal world foundation model unifying reasoning, world generation, and action |
 
 ---
 
