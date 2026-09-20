@@ -184,6 +184,7 @@ The core ask of this list - real, meaningful projects built with or on top of NV
 | [nv-tlabs/omni-dreams](https://github.com/nv-tlabs/omni-dreams) | ~330 | Cosmos-Dreams - real-time photorealistic video world model for AV simulation (Toronto AI Lab) |
 | [NVIDIA-Omniverse-blueprints/cosmos-dataset-search](https://github.com/NVIDIA-Omniverse-blueprints/cosmos-dataset-search) | ~95 | Semantic search across video datasets for Cosmos data curation |
 | [nv-tlabs/cosmos-av-sample-toolkits](https://github.com/nv-tlabs/cosmos-av-sample-toolkits) | ~48 | Toolkits for Cosmos-Transfer1-7B-Sample-AV (autonomous-vehicle data) |
+| [NVIDIA-Omniverse-blueprints/synthetic-manipulation-motion-generation](https://github.com/NVIDIA-Omniverse-blueprints/synthetic-manipulation-motion-generation) | ~232 | Omniverse + Cosmos reference workflow generating synthetic robot manipulation trajectories from a few human demos |
 
 ### Community - Robotics & Embodied AI
 
